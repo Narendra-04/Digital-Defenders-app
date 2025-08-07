@@ -1,45 +1,69 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
-.DS_Store
-.atom/
-.build/
-.buildlog/
-.history
-.svn/
-.swiftpm/
-migrate_working_dir/
-
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
-.idea/
-
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
-
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
+# -------------------------------
+# Flutter / Dart
+# -------------------------------
 .dart_tool/
+.packages
+.pub/
+.pub-cache/
+build/
+windows/flutter/ephemeral/
+flutter_*.png
+
+# -------------------------------
+# Plugin dependencies
+# -------------------------------
 .flutter-plugins
 .flutter-plugins-dependencies
-.pub-cache/
-.pub/
-/build/
+.melos_tool/
 
-# Symbolication related
+# -------------------------------
+# Flutter iOS (if you build for iOS later)
+# -------------------------------
+**/ios/Flutter/.last_build_id
+**/doc/api/
+
+# -------------------------------
+# Android build output
+# -------------------------------
+android/.gradle/
+android/app/debug/
+android/app/profile/
+android/app/release/
+
+# -------------------------------
+# Obfuscation and Symbolication
+# -------------------------------
 app.*.symbols
-
-# Obfuscation related
 app.*.map.json
 
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+# -------------------------------
+# Editor-specific (IntelliJ, VS Code)
+# -------------------------------
+.idea/
+*.iml
+
+.vscode/  # Include if your team doesn't want to share launch configs
+
+# -------------------------------
+# Logs / temp / misc
+# -------------------------------
+*.log
+*.tmp
+*.swp
+.history
+.DS_Store
+Thumbs.db
+*.class
+*.pyc
+.svn/
+migrate_working_dir/
+
+# -------------------------------
+# macOS-specific
+# -------------------------------
+.DS_Store
+
+# -------------------------------
+# Windows-specific
+# -------------------------------
+Thumbs.db
