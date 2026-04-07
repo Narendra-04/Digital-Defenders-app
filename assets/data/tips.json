@@ -1,0 +1,62 @@
+[
+  {
+    "title": "🔐 Strong Password",
+    "description": "Use letters, numbers & symbols like @ #  % to create strong passwords."
+  },
+  {
+    "title": "🚫 Do Not Share OTP",
+    "description": "Never share your OTP or verification codes with anyone."
+  },
+  {
+    "title": "⚠️ Avoid Unknown Links",
+    "description": "Do not click suspicious links in emails or messages."
+  },
+  {
+    "title": "🧑‍💻 Safe Browsing",
+    "description": "Only visit trusted websites with https:// and a lock icon 🔒."
+  },
+  {
+    "title": "📱 Lock Your Device",
+    "description": "Always use PIN, pattern, or fingerprint to secure your device."
+  },
+  {
+    "title": "👀 Beware of Strangers",
+    "description": "Do not talk to unknown people online or share personal details."
+  },
+  {
+    "title": "📧 Email Safety",
+    "description": "Do not open attachments from unknown emails."
+  },
+  {
+    "title": "🎮 Safe Gaming",
+    "description": "Do not share personal info in online games or chats."
+  },
+  {
+    "title": "📸 Think Before Sharing",
+    "description": "Do not upload private photos or information online."
+  },
+  {
+    "title": "🔄 Regular Updates",
+    "description": "Keep your apps and system updated for better security."
+  },
+  {
+    "title": "🔑 Use Unique Passwords",
+    "description": "Use different passwords for different accounts."
+  },
+  {
+    "title": "📶 Secure Wi-Fi",
+    "description": "Avoid using public Wi-Fi for sensitive activities."
+  },
+  {
+    "title": "🛑 Logout After Use",
+    "description": "Always log out from shared or public computers."
+  },
+  {
+    "title": "🧠 Think Before You Click",
+    "description": "If something looks too good to be true, it probably is!"
+  },
+  {
+    "title": "🛡️ Antivirus Protection",
+    "description": "Install antivirus apps to protect your device."
+  }
+]

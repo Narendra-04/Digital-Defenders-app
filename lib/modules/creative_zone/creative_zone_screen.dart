@@ -1,79 +1,40 @@
 import 'package:flutter/material.dart';
 
-// Widgets
-import '../../widgets/tip_popup_widget.dart';
+// Screens
+import 'drawing_screen.dart';
+import 'story_builder.dart';
+import 'color_palette_screen.dart';
+
+// Background
 import '../../widgets/matrix_background.dart';
 
-// Controller
-import '../cyber_tips/tips_controller.dart';
-
-// Routes
-import '../../routes/app_routes.dart';
-
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
-
-  @override
-  void initState() {
-    super.initState();
-    _showTipAfterBuild();
-  }
-
-  /// 🔐 Show Cyber Tip Popup
-  void _showTipAfterBuild() {
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      try {
-        if (TipsController.tips.isEmpty) {
-          await TipsController.loadTipsFromJson();
-        }
-
-        final tip = TipsController.getRandomTip();
-
-        if (!mounted) return;
-
-        showDialog(
-          context: context,
-          barrierDismissible: false,
-          builder: (_) => TipPopupWidget(tip: tip),
-        );
-
-      } catch (e) {
-        debugPrint("Error loading tips: $e");
-      }
-    });
-  }
+class CreativeZoneScreen extends StatelessWidget {
+  const CreativeZoneScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
-      /// 🔥 FULL HACKER UI
+      /// 🖤 Hacker Theme Background
       body: Stack(
         children: [
 
-          /// 🖤 Dark background
+          /// Dark background
           Container(color: Colors.black),
 
-          /// 💻 Matrix animation
+          /// Matrix animation
           const MatrixBackground(),
 
-          /// 🌟 Main UI
+          /// UI
           SafeArea(
             child: Column(
               children: [
 
                 const SizedBox(height: 20),
 
-                /// 🛡 Neon Title
+                /// 🔥 Title
                 Text(
-                  "🛡 Digital Defenders",
+                  "🎨 Creative Zone",
                   style: TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
@@ -89,7 +50,6 @@ class _HomeScreenState extends State<HomeScreen>
 
                 const SizedBox(height: 30),
 
-                /// 📱 Grid Menu
                 Expanded(
                   child: GridView.count(
                     crossAxisCount: 2,
@@ -100,39 +60,24 @@ class _HomeScreenState extends State<HomeScreen>
                     children: [
 
                       _AnimatedCard(
-                        title: "Creative Zone 🎨",
+                        title: "Drawing",
                         icon: Icons.brush,
                         color: Colors.pink,
-                        route: AppRoutes.creativeZone,
+                        screen: const DrawingScreen(),
                       ),
 
                       _AnimatedCard(
-                        title: "Quiz 🧠",
-                        icon: Icons.quiz,
+                        title: "Story Builder",
+                        icon: Icons.menu_book,
                         color: Colors.green,
-                        route: AppRoutes.quiz,
+                        screen: const StoryBuilderScreen(),
                       ),
 
                       _AnimatedCard(
-                        title: "Slides 📊",
-                        icon: Icons.slideshow,
+                        title: "Color Palette",
+                        icon: Icons.palette,
                         color: Colors.orange,
-                        route: AppRoutes.slides,
-                      ),
-
-                      _AnimatedCard(
-                        title: "Game 🎮",
-                        icon: Icons.sports_esports,
-                        color: Colors.blue,
-                        route: AppRoutes.game,
-                      ),
-
-                      /// 🛡 NEW ADVANCED GAME
-                      _AnimatedCard(
-                        title: "Cyber Defender 🛡",
-                        icon: Icons.security,
-                        color: Colors.deepPurple,
-                        route: AppRoutes.cyberGame,
+                        screen: const ColorPaletteScreen(),
                       ),
                     ],
                   ),
@@ -146,18 +91,18 @@ class _HomeScreenState extends State<HomeScreen>
   }
 }
 
-/// 🎬 Animated Card Widget
+/// 🎬 Animated Card
 class _AnimatedCard extends StatefulWidget {
   final String title;
   final IconData icon;
   final Color color;
-  final String route;
+  final Widget screen;
 
   const _AnimatedCard({
     required this.title,
     required this.icon,
     required this.color,
-    required this.route,
+    required this.screen,
   });
 
   @override
@@ -193,7 +138,10 @@ class _AnimatedCardState extends State<_AnimatedCard>
     await _controller.reverse();
     await _controller.forward();
 
-    Navigator.pushNamed(context, widget.route);
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => widget.screen),
+    );
   }
 
   @override
@@ -215,7 +163,6 @@ class _AnimatedCardState extends State<_AnimatedCard>
               )
             ],
           ),
-
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -226,7 +173,6 @@ class _AnimatedCardState extends State<_AnimatedCard>
 
               Text(
                 widget.title,
-                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
